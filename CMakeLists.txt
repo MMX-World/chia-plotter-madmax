@@ -33,7 +33,11 @@ if(MSVC)
   FetchContent_MakeAvailable(uint128_t)
 endif()
 
-set(TARGET_ARCH ${CMAKE_HOST_SYSTEM_PROCESSOR})
+if (${CMAKE_HOST_SYSTEM_PROCESSOR} STREQUAL "amd64")
+	set(TARGET_ARCH "x86_64")
+else()
+	set(TARGET_ARCH ${CMAKE_HOST_SYSTEM_PROCESSOR})
+endif()
 message(STATUS "${PROJECT_NAME} - Architecture: ${TARGET_ARCH}")
 
 FetchContent_Declare(bls_signatures
