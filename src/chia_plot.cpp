@@ -432,7 +432,7 @@ int _main(int argc, char** argv)
 	const int num_files_max = (1 << std::max(log_num_buckets, log_num_buckets_3)) + 2 * num_threads + 32;
 	
 #ifdef _WIN32
-	_setmaxstdio(8192);
+	_setmaxstdio(2048);
 #else
 	if(false) {
 		// try to increase the open file limit
